@@ -53,7 +53,7 @@ export default function Contact() {
   }, [])
 
   return (
-    <section id="contacto" className="section-padding bg-gray-50">
+    <section id="contacto" className="section-padding bg-gray-200/60">
       <div ref={sectionRef} className="container-custom scroll-reveal">
         <div className="text-center mb-16">
           <span className="inline-block text-[#eab530] font-semibold text-sm uppercase tracking-widest mb-3">Hablemos</span>

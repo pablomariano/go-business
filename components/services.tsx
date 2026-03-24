@@ -71,14 +71,14 @@ export default function Services() {
           </div>
 
           {/* Visión */}
-          <div ref={visionTextRef} className="scroll-reveal-left bg-[#143f7a] p-8 lg:py-12 lg:px-14 flex items-center rounded-b-2xl lg:rounded-l-2xl lg:rounded-br-none mt-4 lg:mt-0 order-2 lg:order-none">
+          <div ref={visionTextRef} className="scroll-reveal-left bg-[#143f7a] p-8 lg:py-12 lg:px-14 flex items-center rounded-b-2xl lg:rounded-l-2xl lg:rounded-br-none order-2 lg:order-none">
             <p className="text-gray-200 text-lg leading-relaxed">
               Nuestros deseos se desarrollan en un mejor bienestar, garantizando seguridad en vuestros planes
               tales como la formación de la familia, resguardo patrimonial, proyección de los sueños que son posibles,
               educar, ahorrar y salud. Nuestro equipo humano está preparado para asesorarlo y guiar a un buen fin.
             </p>
           </div>
-          <div ref={visionRef} className="scroll-reveal-right group relative order-1 lg:order-none mt-4 lg:mt-0">
+          <div ref={visionRef} className="scroll-reveal-right group relative order-1 lg:order-none">
             <div className="relative h-72 lg:h-full overflow-hidden rounded-t-2xl lg:rounded-r-2xl lg:rounded-tl-none">
               <img
                 src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80"
