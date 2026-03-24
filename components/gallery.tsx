@@ -62,7 +62,7 @@ export default function Gallery() {
                   <h3 className="text-xl font-bold text-white font-display">Reembolsos Gastos Médicos</h3>
                 </div>
               </div>
-              <div className="p-8">
+              <div className="px-8 pt-6 pb-10">
                 <p className="text-[#5e5d5d] mb-4">
                   Reembolsos de Gastos Ambulatorios y Hospitalarios en Planes Colectivos.
                 </p>
@@ -93,7 +93,7 @@ export default function Gallery() {
                   <h3 className="text-xl font-bold text-white font-display">Reembolsos Gastos Mayores</h3>
                 </div>
               </div>
-              <div className="p-8">
+              <div className="px-8 pt-6 pb-10">
                 <p className="text-[#5e5d5d] mb-4">
                   Reembolsos de Gastos Médicos en planes con deducibles en Planes Individuales.
                 </p>

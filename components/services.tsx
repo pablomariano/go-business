@@ -69,7 +69,7 @@ export default function Services() {
           </div>
 
           {/* Visión */}
-          <div className="scroll-reveal-left bg-[#143f7a] p-8 lg:p-12 flex items-center rounded-t-2xl lg:rounded-l-2xl lg:rounded-tr-none mt-8 lg:mt-0 order-2 lg:order-none">
+          <div className="scroll-reveal-left bg-[#143f7a] p-8 lg:py-12 lg:px-14 flex items-center rounded-b-2xl lg:rounded-l-2xl lg:rounded-br-none mt-8 lg:mt-0 order-2 lg:order-none">
             <p className="text-gray-200 text-lg leading-relaxed">
               Nuestros deseos se desarrollan en un mejor bienestar, garantizando seguridad en vuestros planes
               tales como la formación de la familia, resguardo patrimonial, proyección de los sueños que son posibles,

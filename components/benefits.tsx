@@ -8,13 +8,13 @@ const segurosGenerales = [
     icon: <Flame className="w-7 h-7" />,
     title: "Seguros de Incendios",
     description: "Protección integral contra incendios para tu hogar o empresa",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&q=80",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80",
   },
   {
     icon: <Car className="w-7 h-7" />,
     title: "Seguros Automóviles",
     description: "Cobertura completa para tu vehículo ante cualquier siniestro",
-    image: "https://images.unsplash.com/photo-1549317661-bd32c8ce0abe?w=600&q=80",
+    image: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=600&q=80",
   },
   {
     icon: <HardHat className="w-7 h-7" />,
@@ -38,7 +38,7 @@ const segurosGenerales = [
     icon: <Ship className="w-7 h-7" />,
     title: "Transporte Marítimo",
     description: "Seguros generales de transporte marítimo de carga",
-    image: "https://images.unsplash.com/photo-1494412574643-ff11b0a5eb19?w=600&q=80",
+    image: "https://images.unsplash.com/photo-1524522173746-f628baad3644?w=600&q=80",
   },
 ]
 

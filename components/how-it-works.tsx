@@ -22,7 +22,7 @@ const segurosVida = [
       "Seguros de protección a plazo fijo",
       "Seguros de protección familiares, sin ahorro",
     ],
-    image: "https://images.unsplash.com/photo-1516733968668-dbdce39c0571?w=600&q=80",
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80",
   },
   {
     icon: <Plane className="w-8 h-8" />,
