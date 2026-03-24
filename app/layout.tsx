@@ -1,14 +1,11 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
 import "./globals.css"
 
-const inter = Inter({ subsets: ["latin"] })
-
 export const metadata: Metadata = {
-  title: "Go Business - Soluciones Empresariales Personalizadas",
+  title: "Latorre y Palma - Corredores de Seguros",
   description:
-    "Ofrecemos soluciones personalizadas en transporte y logística, suministro y abastecimiento, personal y servicios transitorios, y servicios generales.",
+    "Asesoría profesional en seguros de vida, seguros generales y seguros complementarios de salud. Más de 15 años de experiencia protegiendo a su familia y patrimonio.",
     generator: 'v0.app'
 }
 
@@ -19,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className="scroll-smooth">
-      <body className={inter.className}>{children}</body>
+      <body className="font-body">{children}</body>
     </html>
   )
 }

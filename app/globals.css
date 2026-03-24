@@ -2,29 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap');
+
 :root {
-  --primary: 252, 185, 0;
+  --primary: 20, 63, 122;
+  --accent: 234, 181, 48;
+  --neutral: 94, 93, 93;
   --background: 255, 255, 255;
-  --foreground: 15, 23, 42;
+  --foreground: 30, 30, 40;
 }
 
-.dark {
-  --background: 15, 23, 42;
-  --foreground: 255, 255, 255;
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   color: rgb(var(--foreground));
   background: rgb(var(--background));
+  font-family: 'DM Sans', sans-serif;
 }
 
 @layer base {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
     @apply font-bold;
   }
 
@@ -47,29 +47,66 @@ body {
 
 @layer components {
   .btn-primary {
-    @apply bg-primary text-white font-medium px-6 py-3 rounded-md shadow-md hover:shadow-lg transition-all duration-300 hover:translate-y-[-2px];
+    @apply bg-[#143f7a] text-white font-medium px-8 py-3.5 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 hover:translate-y-[-2px];
+  }
+
+  .btn-accent {
+    @apply bg-[#eab530] text-[#143f7a] font-semibold px-8 py-3.5 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 hover:translate-y-[-2px];
   }
 
   .section-padding {
-    @apply py-16 md:py-24;
+    @apply py-20 md:py-28;
   }
 
   .container-custom {
-    @apply container mx-auto px-4 md:px-8;
+    @apply container mx-auto px-4 md:px-8 lg:px-12;
   }
 
   .card {
-    @apply bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6;
+    @apply bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500 p-8 border border-gray-100;
+  }
+
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .scroll-reveal-left {
+    opacity: 0;
+    transform: translateX(-60px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .scroll-reveal-left.revealed {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .scroll-reveal-right {
+    opacity: 0;
+    transform: translateX(60px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .scroll-reveal-right.revealed {
+    opacity: 1;
+    transform: translateX(0);
   }
 
   .animate-fade-in {
-    @apply opacity-0 animate-[fadeIn_0.5s_ease-in-out_forwards];
+    @apply opacity-0 animate-[fadeIn_0.6s_ease-out_forwards];
   }
 
   @keyframes fadeIn {
     from {
       opacity: 0;
-      transform: translateY(10px);
+      transform: translateY(20px);
     }
     to {
       opacity: 1;
@@ -77,19 +114,20 @@ body {
     }
   }
 
-  .animate-delay-100 {
-    animation-delay: 100ms;
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
   }
 
-  .animate-delay-200 {
-    animation-delay: 200ms;
+  @keyframes scrollDown {
+    0% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(12px); }
   }
 
-  .animate-delay-300 {
-    animation-delay: 300ms;
-  }
-
-  .animate-delay-400 {
-    animation-delay: 400ms;
-  }
+  .animate-delay-100 { animation-delay: 100ms; }
+  .animate-delay-200 { animation-delay: 200ms; }
+  .animate-delay-300 { animation-delay: 300ms; }
+  .animate-delay-400 { animation-delay: 400ms; }
+  .animate-delay-500 { animation-delay: 500ms; }
+  .animate-delay-600 { animation-delay: 600ms; }
 }

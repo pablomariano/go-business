@@ -1,101 +1,96 @@
 import Link from "next/link"
-import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react"
+import Image from "next/image"
+import { MapPin, Phone, Mail } from "lucide-react"
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white py-12">
-      <div className="container-custom">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <footer className="bg-[#0c274c] text-white">
+      <div className="container-custom py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div>
-            <h3 className="text-xl font-bold mb-4">Go Business</h3>
-            <p className="text-gray-400 mb-4">
-              Soluciones empresariales personalizadas con más de tres décadas de experiencia conjunta.
-            </p>
-            <div className="flex space-x-4">
-              <Link href="#" className="text-gray-400 hover:text-primary transition-colors">
-                <Facebook size={20} />
-                <span className="sr-only">Facebook</span>
-              </Link>
-              <Link href="#" className="text-gray-400 hover:text-primary transition-colors">
-                <Twitter size={20} />
-                <span className="sr-only">Twitter</span>
-              </Link>
-              <Link href="#" className="text-gray-400 hover:text-primary transition-colors">
-                <Instagram size={20} />
-                <span className="sr-only">Instagram</span>
-              </Link>
-              <Link href="#" className="text-gray-400 hover:text-primary transition-colors">
-                <Linkedin size={20} />
-                <span className="sr-only">LinkedIn</span>
-              </Link>
+            <div className="flex items-center gap-3 mb-5">
+              <Image src="/logo.png" alt="Latorre y Palma" width={44} height={44} className="rounded-full" />
+              <div>
+                <span className="text-lg font-bold font-display block leading-tight">Latorre y Palma</span>
+                <span className="text-xs text-[#eab530] uppercase tracking-wider">Corredores de Seguros</span>
+              </div>
             </div>
+            <p className="text-gray-400 text-sm leading-relaxed">
+              Más de 15 años de experiencia protegiendo a familias y empresas con asesoría profesional en seguros.
+            </p>
           </div>
 
           <div>
-            <h4 className="text-lg font-bold mb-4">Servicios</h4>
-            <ul className="space-y-2">
+            <h4 className="text-base font-bold mb-5 text-[#eab530] font-display">Nuestros Seguros</h4>
+            <ul className="space-y-3">
               <li>
-                <Link href="#" className="text-gray-400 hover:text-primary transition-colors">
-                  Bodega y Logística
+                <Link href="#seguros-vida" className="text-gray-400 hover:text-[#eab530] transition-colors text-sm">
+                  Seguros de Vida
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-gray-400 hover:text-primary transition-colors">
-                  Abastecimiento y Suministro
+                <Link href="#seguros-generales" className="text-gray-400 hover:text-[#eab530] transition-colors text-sm">
+                  Seguros Generales
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-gray-400 hover:text-primary transition-colors">
-                  Outsourcing y Servicios Transitorios
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-gray-400 hover:text-primary transition-colors">
-                  Servicios Generales
+                <Link href="#seguros-salud" className="text-gray-400 hover:text-[#eab530] transition-colors text-sm">
+                  Seguros Complementarios de Salud
                 </Link>
               </li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-lg font-bold mb-4">Enlaces rápidos</h4>
-            <ul className="space-y-2">
+            <h4 className="text-base font-bold mb-5 text-[#eab530] font-display">Navegación</h4>
+            <ul className="space-y-3">
               <li>
-                <Link href="#" className="text-gray-400 hover:text-primary transition-colors">
-                  Sobre nosotros
+                <Link href="#inicio" className="text-gray-400 hover:text-[#eab530] transition-colors text-sm">
+                  Inicio
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-gray-400 hover:text-primary transition-colors">
-                  Casos de éxito
+                <Link href="#nosotros" className="text-gray-400 hover:text-[#eab530] transition-colors text-sm">
+                  Nosotros
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-gray-400 hover:text-primary transition-colors">
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-gray-400 hover:text-primary transition-colors">
-                  Preguntas frecuentes
+                <Link href="#contacto" className="text-gray-400 hover:text-[#eab530] transition-colors text-sm">
+                  Contacto
                 </Link>
               </li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-lg font-bold mb-4">Contacto</h4>
-            <address className="not-italic text-gray-400">
-              <p className="mb-2">Av. Principal 1234</p>
-              <p className="mb-2">Santiago, Chile</p>
-              <p className="mb-2">contacto@gobusiness.com</p>
-              <p>+56 2 2345 6789</p>
+            <h4 className="text-base font-bold mb-5 text-[#eab530] font-display">Contacto</h4>
+            <address className="not-italic space-y-3">
+              <div className="flex items-start gap-3">
+                <MapPin className="w-4 h-4 text-[#eab530] mt-0.5 flex-shrink-0" />
+                <span className="text-gray-400 text-sm">San Pedro de la Paz, Concepción, Chile</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <Phone className="w-4 h-4 text-[#eab530] mt-0.5 flex-shrink-0" />
+                <div className="text-gray-400 text-sm">
+                  <p>(+56 9) 90161539</p>
+                  <p>(+56 9) 32418771</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <Mail className="w-4 h-4 text-[#eab530] mt-0.5 flex-shrink-0" />
+                <div className="text-gray-400 text-sm">
+                  <p>rpalma@lypcorredores.cl</p>
+                  <p>npalma@lypcorredores.cl</p>
+                </div>
+              </div>
             </address>
           </div>
         </div>
+      </div>
 
-        <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
-          <p>&copy; {new Date().getFullYear()} Go Business. Todos los derechos reservados.</p>
+      <div className="border-t border-white/10">
+        <div className="container-custom py-6 text-center text-gray-500 text-sm">
+          <p>&copy; {new Date().getFullYear()} Latorre y Palma — Corredores de Seguros. Todos los derechos reservados.</p>
         </div>
       </div>
     </footer>

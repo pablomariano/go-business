@@ -1,95 +1,131 @@
 "use client"
 
 import { useEffect, useRef } from "react"
-import { CheckCircle } from "lucide-react"
+import { Shield, Flame, Car, HardHat, Scale, Ship, Construction } from "lucide-react"
 
-const benefits = [
-  "Reducción de costos operativos hasta en un 30%",
-  "Mayor eficiencia en la gestión de recursos",
-  "Flexibilidad para adaptarse a las necesidades cambiantes",
-  "Acceso a profesionales altamente calificados",
-  "Optimización de procesos logísticos y de suministro",
-  "Mejora en la satisfacción de clientes y empleados",
+const segurosGenerales = [
+  {
+    icon: <Flame className="w-7 h-7" />,
+    title: "Seguros de Incendios",
+    description: "Protección integral contra incendios para tu hogar o empresa",
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&q=80",
+  },
+  {
+    icon: <Car className="w-7 h-7" />,
+    title: "Seguros Automóviles",
+    description: "Cobertura completa para tu vehículo ante cualquier siniestro",
+    image: "https://images.unsplash.com/photo-1549317661-bd32c8ce0abe?w=600&q=80",
+  },
+  {
+    icon: <HardHat className="w-7 h-7" />,
+    title: "Seguros Equipos Móviles",
+    description: "Protección para maquinaria y equipos en operación",
+    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80",
+  },
+  {
+    icon: <Scale className="w-7 h-7" />,
+    title: "Seguros RC",
+    description: "Responsabilidad civil ante daños a terceros",
+    image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&q=80",
+  },
+  {
+    icon: <Construction className="w-7 h-7" />,
+    title: "Todo Riesgo Construcción",
+    description: "Cobertura completa para obras y proyectos en construcción",
+    image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600&q=80",
+  },
+  {
+    icon: <Ship className="w-7 h-7" />,
+    title: "Transporte Marítimo",
+    description: "Seguros generales de transporte marítimo de carga",
+    image: "https://images.unsplash.com/photo-1494412574643-ff11b0a5eb19?w=600&q=80",
+  },
 ]
 
 export default function Benefits() {
   const sectionRef = useRef<HTMLDivElement>(null)
-  const textRef = useRef<HTMLDivElement>(null)
-  const imageRef = useRef<HTMLDivElement>(null)
-  const benefitsRef = useRef<(HTMLLIElement | null)[]>([])
+  const cardsRef = useRef<(HTMLDivElement | null)[]>([])
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("opacity-100", "translate-y-0", "translate-x-0")
-            entry.target.classList.remove("opacity-0", "translate-y-10", "translate-x-10", "-translate-x-10")
+            entry.target.classList.add("revealed")
+            observer.unobserve(entry.target)
           }
         })
       },
       { threshold: 0.1 },
     )
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current)
-    }
+    if (sectionRef.current) observer.observe(sectionRef.current)
+    cardsRef.current.forEach((card) => { if (card) observer.observe(card) })
 
-    if (textRef.current) {
-      observer.observe(textRef.current)
-    }
-
-    if (imageRef.current) {
-      observer.observe(imageRef.current)
-    }
-
-    benefitsRef.current.forEach((benefit) => {
-      if (benefit) observer.observe(benefit)
-    })
-
-    return () => {
-      observer.disconnect()
-    }
+    return () => observer.disconnect()
   }, [])
 
   return (
-    <section id="beneficios" className="section-padding bg-white">
-      <div ref={sectionRef} className="container-custom opacity-0 translate-y-10 transition-all duration-700">
+    <section id="seguros-generales" className="section-padding bg-[#143f7a] relative overflow-hidden">
+      {/* Decorative background */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#eab530]/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#eab530]/5 rounded-full translate-y-1/2 -translate-x-1/2"></div>
+
+      <div ref={sectionRef} className="container-custom relative z-10 scroll-reveal">
         <div className="text-center mb-16">
-          <h2 className="mb-4">Beneficios</h2>
-          <p className="max-w-2xl mx-auto text-gray-600">
-            Trabajar con Go Business te brinda ventajas competitivas significativas para el crecimiento de tu empresa.
+          <span className="inline-block text-[#eab530] font-semibold text-sm uppercase tracking-widest mb-3">Protección Patrimonial</span>
+          <h2 className="mb-4 text-white">Seguros Generales</h2>
+          <div className="flex justify-center mb-6">
+            <Shield className="w-10 h-10 text-[#eab530]" />
+          </div>
+          <p className="max-w-2xl mx-auto text-gray-300 text-lg">
+            Protege tu patrimonio, vehículos, propiedades y empresa con nuestras coberturas integrales.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div ref={textRef} className="opacity-0 -translate-x-10 transition-all duration-700">
-            <h3 className="text-2xl font-bold mb-6">Potencia tu empresa con nuestras soluciones</h3>
-            <ul className="space-y-4">
-              {benefits.map((benefit, index) => (
-                <li
-                  key={index}
-                  ref={(el) => (benefitsRef.current[index] = el)}
-                  className="flex items-start gap-3 opacity-0 translate-y-10 transition-all duration-500"
-                  style={{ transitionDelay: `${index * 100}ms` }}
-                >
-                  <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" />
-                  <span>{benefit}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div ref={imageRef} className="opacity-0 translate-x-10 transition-all duration-700 delay-300">
-            <div className="relative">
-              <div className="absolute -top-4 -left-4 w-24 h-24 bg-primary rounded-full opacity-20"></div>
-              <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-primary rounded-full opacity-20"></div>
-              <img
-                src="/placeholder.svg?height=600&width=600"
-                alt="Beneficios de Go Business"
-                className="w-full h-auto rounded-xl shadow-lg relative z-10"
-              />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {segurosGenerales.map((seguro, index) => (
+            <div
+              key={index}
+              ref={(el) => { cardsRef.current[index] = el }}
+              className="scroll-reveal group relative rounded-2xl overflow-hidden cursor-pointer"
+              style={{ transitionDelay: `${index * 100}ms` }}
+            >
+              <div className="relative h-64">
+                <img
+                  src={seguro.image}
+                  alt={seguro.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent group-hover:from-[#143f7a]/90 transition-all duration-500"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-10 h-10 rounded-full bg-[#eab530] flex items-center justify-center text-[#143f7a] group-hover:scale-110 transition-transform duration-300">
+                      {seguro.icon}
+                    </div>
+                    <h3 className="text-lg font-bold text-white font-display">{seguro.title}</h3>
+                  </div>
+                  <p className="text-gray-300 text-sm opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                    {seguro.description}
+                  </p>
+                </div>
+              </div>
             </div>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <div className="text-center mt-16 scroll-reveal">
+          <p className="text-gray-300 text-lg mb-6">
+            Llama sin compromiso y te asesoraremos en la mejor opción para tener una vida asegurada.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="tel:+56990161539" className="btn-accent rounded-full inline-flex items-center justify-center gap-2">
+              Llámenos al (+56 9) 90161539
+            </a>
+            <a href="#contacto" className="px-8 py-3.5 rounded-full border-2 border-[#eab530]/30 text-[#eab530] hover:bg-[#eab530]/10 transition-all duration-300 font-medium text-center">
+              Ir a contacto
+            </a>
           </div>
         </div>
       </div>

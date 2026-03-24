@@ -2,7 +2,17 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { Menu, X } from "lucide-react"
+import Image from "next/image"
+import { Menu, X, Phone } from "lucide-react"
+
+const navLinks = [
+  { href: "#inicio", label: "Inicio" },
+  { href: "#nosotros", label: "Nosotros" },
+  { href: "#seguros-vida", label: "Seguros de Vida" },
+  { href: "#seguros-generales", label: "Seguros Generales" },
+  { href: "#seguros-salud", label: "Seguros de Salud" },
+  { href: "#contacto", label: "Contacto" },
+]
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -10,90 +20,82 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setScrolled(true)
-      } else {
-        setScrolled(false)
-      }
+      setScrolled(window.scrollY > 10)
     }
-
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? "bg-white shadow-md py-2" : "bg-transparent py-4"}`}
+      className={`fixed w-full z-50 transition-all duration-500 ${
+        scrolled
+          ? "bg-white/95 backdrop-blur-md shadow-lg py-2"
+          : "bg-[#143f7a]/90 backdrop-blur-sm py-3"
+      }`}
     >
       <div className="container-custom flex justify-between items-center">
-        <Link href="/" className="flex items-center">
-          <span className="text-2xl font-bold text-primary">Go Business</span>
+        <Link href="#inicio" className="flex items-center gap-3">
+          <Image src="/logo.png" alt="Latorre y Palma" width={48} height={48} className="rounded-full" />
+          <div className="hidden sm:block">
+            <span className={`text-lg font-bold font-display leading-tight block ${scrolled ? "text-[#143f7a]" : "text-white"}`}>
+              Latorre y Palma
+            </span>
+            <span className={`text-xs tracking-wider uppercase ${scrolled ? "text-[#5e5d5d]" : "text-[#eab530]"}`}>
+              Corredores de Seguros
+            </span>
+          </div>
         </Link>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex space-x-8">
-          <Link href="#servicios" className="font-medium hover:text-primary transition-colors">
-            Servicios
-          </Link>
-          <Link href="#como-funciona" className="font-medium hover:text-primary transition-colors">
-            Cómo Funciona
-          </Link>
-          <Link href="#beneficios" className="font-medium hover:text-primary transition-colors">
-            Beneficios
-          </Link>
-          <Link href="#testimonios" className="font-medium hover:text-primary transition-colors">
-            Testimonios
-          </Link>
-          <Link href="#contacto" className="font-medium hover:text-primary transition-colors">
-            Contacto
-          </Link>
+        <div className="hidden lg:flex items-center space-x-6">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`text-sm font-medium transition-colors duration-300 hover:text-[#eab530] ${
+                scrolled ? "text-[#143f7a]" : "text-white"
+              }`}
+            >
+              {link.label}
+            </Link>
+          ))}
+          <a
+            href="tel:+56990161539"
+            className="flex items-center gap-2 btn-accent text-sm !py-2.5 !px-5 rounded-full"
+          >
+            <Phone size={14} />
+            Llámanos
+          </a>
         </div>
 
-        {/* Mobile Navigation Toggle */}
-        <button className="md:hidden text-gray-800" onClick={() => setIsOpen(!isOpen)}>
+        <button
+          className={`lg:hidden ${scrolled ? "text-[#143f7a]" : "text-white"}`}
+          onClick={() => setIsOpen(!isOpen)}
+        >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
-      {/* Mobile Navigation Menu */}
       {isOpen && (
-        <div className="md:hidden bg-white absolute top-full left-0 w-full shadow-md">
-          <div className="container-custom py-4 flex flex-col space-y-4">
-            <Link
-              href="#servicios"
-              className="font-medium hover:text-primary transition-colors"
-              onClick={() => setIsOpen(false)}
+        <div className="lg:hidden bg-white absolute top-full left-0 w-full shadow-xl border-t border-gray-100">
+          <div className="container-custom py-6 flex flex-col space-y-4">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-[#143f7a] font-medium hover:text-[#eab530] transition-colors py-1"
+                onClick={() => setIsOpen(false)}
+              >
+                {link.label}
+              </Link>
+            ))}
+            <a
+              href="tel:+56990161539"
+              className="flex items-center gap-2 btn-accent text-sm !py-2.5 justify-center rounded-full mt-2"
             >
-              Servicios
-            </Link>
-            <Link
-              href="#como-funciona"
-              className="font-medium hover:text-primary transition-colors"
-              onClick={() => setIsOpen(false)}
-            >
-              Cómo Funciona
-            </Link>
-            <Link
-              href="#beneficios"
-              className="font-medium hover:text-primary transition-colors"
-              onClick={() => setIsOpen(false)}
-            >
-              Beneficios
-            </Link>
-            <Link
-              href="#testimonios"
-              className="font-medium hover:text-primary transition-colors"
-              onClick={() => setIsOpen(false)}
-            >
-              Testimonios
-            </Link>
-            <Link
-              href="#contacto"
-              className="font-medium hover:text-primary transition-colors"
-              onClick={() => setIsOpen(false)}
-            >
-              Contacto
-            </Link>
+              <Phone size={14} />
+              (+56 9) 90161539
+            </a>
           </div>
         </div>
       )}
