@@ -115,7 +115,7 @@ export default function Benefits() {
         </div>
 
         {/* CTA */}
-        <div className="text-center mt-16 scroll-reveal">
+        <div className="text-center mt-10 scroll-reveal">
           <p className="text-gray-300 text-lg mb-6">
             Llama sin compromiso y te asesoraremos en la mejor opción para tener una vida asegurada.
           </p>

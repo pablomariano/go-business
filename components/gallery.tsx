@@ -62,7 +62,7 @@ export default function Gallery() {
                   <h3 className="text-xl font-bold text-white font-display">Reembolsos Gastos Médicos</h3>
                 </div>
               </div>
-              <div className="px-8 pt-6 pb-10">
+              <div className="px-8 pt-6 pb-8">
                 <p className="text-[#5e5d5d] mb-4">
                   Reembolsos de Gastos Ambulatorios y Hospitalarios en Planes Colectivos.
                 </p>
@@ -93,7 +93,7 @@ export default function Gallery() {
                   <h3 className="text-xl font-bold text-white font-display">Reembolsos Gastos Mayores</h3>
                 </div>
               </div>
-              <div className="px-8 pt-6 pb-10">
+              <div className="px-8 pt-6 pb-8">
                 <p className="text-[#5e5d5d] mb-4">
                   Reembolsos de Gastos Médicos en planes con deducibles en Planes Individuales.
                 </p>
@@ -108,7 +108,7 @@ export default function Gallery() {
         </div>
 
         {/* CTA Banner */}
-        <div className="mt-16 bg-gradient-to-r from-[#143f7a] to-[#1a5099] rounded-2xl p-8 md:p-12 text-center scroll-reveal">
+        <div className="mt-10 bg-gradient-to-r from-[#143f7a] to-[#1a5099] rounded-2xl p-8 md:p-12 text-center scroll-reveal">
           <h3 className="text-2xl md:text-3xl font-bold text-white font-display mb-4">¿Desea Asesoría Personalizada?</h3>
           <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
             Escríbanos y nos contactaremos contigo para ver qué es lo que más te conviene.
