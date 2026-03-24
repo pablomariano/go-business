@@ -5,8 +5,10 @@ import { Target, Eye } from "lucide-react"
 
 export default function Services() {
   const sectionRef = useRef<HTMLDivElement>(null)
-  const missionRef = useRef<HTMLDivElement>(null)
+  const missionImageRef = useRef<HTMLDivElement>(null)
+  const missionTextRef = useRef<HTMLDivElement>(null)
   const visionRef = useRef<HTMLDivElement>(null)
+  const visionTextRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -21,7 +23,7 @@ export default function Services() {
       { threshold: 0.15 },
     )
 
-    ;[sectionRef, missionRef, visionRef].forEach((ref) => {
+    ;[sectionRef, missionImageRef, missionTextRef, visionRef, visionTextRef].forEach((ref) => {
       if (ref.current) observer.observe(ref.current)
     })
 
@@ -42,7 +44,7 @@ export default function Services() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-0 max-w-6xl mx-auto">
           {/* Misión */}
-          <div ref={missionRef} className="scroll-reveal-left group relative">
+          <div ref={missionImageRef} className="scroll-reveal-left group relative">
             <div className="relative h-72 lg:h-full overflow-hidden rounded-t-2xl lg:rounded-l-2xl lg:rounded-tr-none">
               <img
                 src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&q=80"
@@ -60,7 +62,7 @@ export default function Services() {
               </div>
             </div>
           </div>
-          <div ref={missionRef} className="scroll-reveal-right bg-gray-50 p-8 lg:p-12 flex items-center rounded-b-2xl lg:rounded-r-2xl lg:rounded-bl-none">
+          <div ref={missionTextRef} className="scroll-reveal-right bg-gray-50 p-8 lg:p-12 flex items-center rounded-b-2xl lg:rounded-r-2xl lg:rounded-bl-none">
             <p className="text-[#5e5d5d] text-lg leading-relaxed">
               Ofrecemos asesoría profesional para protegerlo a usted, su familia, su patrimonio o empresa,
               del riesgo que presentan las faenas diarias. Lo invitamos a eliminar la incertidumbre de su
@@ -69,7 +71,7 @@ export default function Services() {
           </div>
 
           {/* Visión */}
-          <div className="scroll-reveal-left bg-[#143f7a] p-8 lg:py-12 lg:px-14 flex items-center rounded-b-2xl lg:rounded-l-2xl lg:rounded-br-none mt-4 lg:mt-0 order-2 lg:order-none">
+          <div ref={visionTextRef} className="scroll-reveal-left bg-[#143f7a] p-8 lg:py-12 lg:px-14 flex items-center rounded-b-2xl lg:rounded-l-2xl lg:rounded-br-none mt-4 lg:mt-0 order-2 lg:order-none">
             <p className="text-gray-200 text-lg leading-relaxed">
               Nuestros deseos se desarrollan en un mejor bienestar, garantizando seguridad en vuestros planes
               tales como la formación de la familia, resguardo patrimonial, proyección de los sueños que son posibles,

@@ -45,6 +45,7 @@ const segurosGenerales = [
 export default function Benefits() {
   const sectionRef = useRef<HTMLDivElement>(null)
   const cardsRef = useRef<(HTMLDivElement | null)[]>([])
+  const ctaRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -60,6 +61,7 @@ export default function Benefits() {
     )
 
     if (sectionRef.current) observer.observe(sectionRef.current)
+    if (ctaRef.current) observer.observe(ctaRef.current)
     cardsRef.current.forEach((card) => { if (card) observer.observe(card) })
 
     return () => observer.disconnect()
@@ -115,7 +117,7 @@ export default function Benefits() {
         </div>
 
         {/* CTA */}
-        <div className="text-center mt-10 scroll-reveal">
+        <div ref={ctaRef} className="text-center mt-10 scroll-reveal">
           <p className="text-gray-300 text-lg mb-6">
             Llama sin compromiso y te asesoraremos en la mejor opción para tener una vida asegurada.
           </p>

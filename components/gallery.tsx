@@ -8,6 +8,7 @@ export default function Gallery() {
   const sectionRef = useRef<HTMLDivElement>(null)
   const leftRef = useRef<HTMLDivElement>(null)
   const rightRef = useRef<HTMLDivElement>(null)
+  const ctaRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -22,7 +23,7 @@ export default function Gallery() {
       { threshold: 0.1 },
     )
 
-    ;[sectionRef, leftRef, rightRef].forEach((ref) => {
+    ;[sectionRef, leftRef, rightRef, ctaRef].forEach((ref) => {
       if (ref.current) observer.observe(ref.current)
     })
 
@@ -108,7 +109,7 @@ export default function Gallery() {
         </div>
 
         {/* CTA Banner */}
-        <div className="mt-10 bg-gradient-to-r from-[#143f7a] to-[#1a5099] rounded-2xl p-8 md:p-12 text-center scroll-reveal">
+        <div ref={ctaRef} className="mt-10 bg-gradient-to-r from-[#143f7a] to-[#1a5099] rounded-2xl p-8 md:p-12 text-center scroll-reveal">
           <h3 className="text-2xl md:text-3xl font-bold text-white font-display mb-4">¿Desea Asesoría Personalizada?</h3>
           <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
             Escríbanos y nos contactaremos contigo para ver qué es lo que más te conviene.
